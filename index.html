@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="hu"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Ittzés Lili - Sportoktató</title> <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+body {
+margin:0; padding:0;
+font-family:'Inter', sans-serif;
+background-color:#2a2a2a;
+color:#f0f0f0;
+text-align:center;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+background: #1b1b1b;
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.nav-links {
+display: flex;
+gap: 15px;
+}
+
+.nav-links a {
+color: #27ae60;
+text-decoration: none;
+font-weight: 600;
+transition: 0.3s;
+margin: 0 5px;
+}
+
+.nav-links a:hover {
+color: #a3e6a3;
+}
+
+.hamburger {
+display: none;
+flex-direction: column;
+cursor: pointer;
+width: 25px;
+height: 20px;
+color: #27ae60;
+justify-content: space-between;
+}
+
+.hamburger div {
+background-color: #2a2a2a;
+height: 3px;
+border-radius: 2px;
+transition: 0.3s;
+}
+
+@media (max-width: 480px) {
+.discount-table {
+font-size: 12px;
+}
+.nav-links {
+display: none;
+flex-direction: column;
+width: 100%;
+background-color: #2a2a2a;
+position: absolute;
+top: 50px;
+left: 0;
+padding: 10px 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+border-radius: 0 0 15px 15px;
+}
+
+.nav-links.active {
+display: flex;
+}
+
+.hamburger {
+display: flex;
+}
+}
+
+header {
+padding:30px;
+background: linear-gradient(135deg,#1b1b1b,#2a2a2a);
+border-radius:15px;
+margin:20px;
+box-shadow:0 4px 20px rgba(39,174,96,0.5);
+}
+
+header h1 { color:#27ae60; margin-bottom:0.5em; }
+header p { margin:0.3em 0; font-size:1.1rem; }
+
+section {
+max-width:900px;
+margin:30px auto;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(39,174,96,0.3);
+background-color:#2a2a2a;
+}
+
+#frissites h2, 
+#discounts h2 {
+  color: #27ae60; /* zöld */
+}
+
+#discounts h2 {
+    font-size: 1.6rem; /* nagyobb a "Kedvezmények" cím */
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+#discounts h3 {
+    font-size: 1rem; /* kisebb a "További kedvezményekért..." sor */
+    font-weight: 500;
+    color: #27ae60;
+    margin-top: 15px;
+}
+
+
+.detail-item {
+border:1px solid #27ae60;
+border-radius:12px;
+margin:10px 0;
+overflow:hidden;
+text-align:left;
+}
+
+.detail-item .header {
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 15px;
+background:#222;
+font-weight:600;
+cursor:pointer;
+}
+
+.detail-item .toggle-btn {
+background:#27ae60;
+border:none;
+padding:5px 12px;
+border-radius:8px;
+color:#121212;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+.detail-item .toggle-btn:hover { background:#3bd25b; }
+
+.detail-item .content {
+max-height:0;
+overflow:hidden;
+padding:0 15px;
+background:#1b1b1b;
+transition:max-height 0.5s ease, padding 0.5s ease;
+line-height:1.5;
+}
+
+.detail-item.open .content {
+max-height:500px;
+padding:10px 15px;
+}
+
+.services {
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+  display: block;
+}
+
+.new-price {
+  color: #27ae60; /* zöld */
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+}
+
+.price-box {
+  margin-bottom: 5px;
+}
+
+
+.service-card {
+display:block;
+width:220px;
+background:#1f1f1f;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(39,174,96,0.3);
+text-decoration:none;
+color:#f0f0f0;
+transition:0.3s;
+}
+
+.service-card:hover {
+transform:translateY(-5px);
+background:linear-gradient(135deg,#1f1f1f,#27ae60a0);
+}
+
+.service-card h3, .service-card p { margin:5px 0; }
+
+.contact a {
+display:inline-block;
+margin:15px 20px;
+color:#27ae60;
+text-decoration:none;
+font-weight:600;
+}
+
+#contact a {
+  color: #27ae60; /* linkek zöldek */
+}
+
+#contact h2 {
+  color: #27ae60; /* zöld */
+}
+
+.contact a:hover { color:#a3e6a3; }
+
+footer { text-align:center; margin:20px; color:#27ae60; font-weight:600; font-size:0.9rem; }
+
+.discount-table {
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+width:auto;
+border-collapse:collapse;
+margin: 26px auto;
+margin-top:20px;
+text-align:center;
+white-space: nowrap;
+table-layout: auto;
+font-size:13px; /* kicsit nagyobb alapméret */
+}
+
+.discount-table th, 
+.discount-table td {
+border:1px solid #27ae60;
+padding:5px 8px;
+word-wrap: break-word;
+}
+
+.discount-table th {
+background:#27ae60;
+color:#121212;
+font-size:13px;
+}
+
+.discount-table td {
+background:#1b1b1b;
+font-weight:500; /* kicsit vastagabb a többi cella */
+}
+
+.discount-table td.discount-price {
+color:#27ae60;
+font-weight:700;
+font-size:15px; /* kiemelt ár */
+}
+
+.discount-table tr:hover td {
+background:#2a2a2a;
+}
+
+.small-text { font-size:0.85rem; }
+
+html {
+scroll-behavior: smooth;
+}
+</style>
+
+</head> 
+	<body> 
+	<!-- Menü --> 	
+		<nav> 
+		<div class="hamburger" id="hamburger"> 
+		<div>
+		</div> 
+		<div>
+		</div> 
+		<div>
+		</div> 
+		</div> 
+		<div class="nav-links" id="nav-links"> 
+			<a href="#bemutatkozas">Bemutatkozás</a>
+			<a href="#frissites">Frissítés</a> 
+			<a href="#services">Szolgáltatások</a> 
+			<a href="#discounts">Kedvezmények</a> 
+			<a href="#contact">Kapcsolat</a> 
+		</div> 
+		</nav> 
+		<!-- Bemutatkozás --> 
+	<section id="bemutatkozas"> 
+		<header> 
+			<h1>Ittzés Lili - Sportoktató</h1> 
+			<p>A sport mindig is fontos része volt az életemnek: hosszú évekig ritmikus gimnasztikáztam és kajakoztam versenyszerűen.</p> 
+			<p>A mozgás számomra mindig is a jó közérzet és az egészséges élet kulcsa volt.</p>
+			<p>Célom, hogy másokat is segítsek a fejlődésükben, legyen szó izmosodásól, fogyásról vagy formálódásról.</p> 
+		</header> 
+	</section> 
+		<!-- Frissítés --> 
+	<section id="frissites"> 
+		<h2>💥 FRISSÍTÉS indul!</h2> 
+		<p>Legyen szó fogyásról, tömegelésről vagy formálódásról – nem sablonos megoldásokat kapsz, hanem valódi támogatást!</p> 
+			<div class="detail-item"> 
+			<div class="header"> 
+				<span>Személyre szabott edzéstervek</span> 
+					<button class="toggle-btn">
+				<span class="label">Részletek</span> 
+				<span class="arrow">▼</span>
+				</button> 
+			</div> 
+			<div class="content"> 
+				<p>Részletes edzéstervek, figyelembe véve a testalkatodat, erőnlétedet és céljaidat. Biztonságos, hatékony fejlődés.</p> 
+			</div> 
+			</div> 
+			<div class="detail-item"> 
+			<div class="header"> 
+				<span>Motiváció és támogatás</span>
+					<button class="toggle-btn">
+				<span class="label">Részletek</span> 
+				<span class="arrow">▼</span>
+					</button> 
+			</div> 
+			<div class="content"> 
+				<p>Folyamatos visszajelzéssel és támogatással motiválok, hogy ne maradj egyedül az út során.</p> 
+				</div> 
+				</div> 
+				<div class="detail-item"> 
+				<div class="header"> 
+					<span>Rugalmas időbeosztás</span> 
+						<button class="toggle-btn">
+					<span class="label">Részletek</span> 
+					<span class="arrow">▼</span>
+						</button> 
+				</div> 
+				<div class="content"> 
+					<p>Edzhetsz, amikor neked jó, online programmal bármikor hozzáférhetsz a gyakorlatokhoz.</p> 
+				</div> 
+				</div> 
+				<div class="detail-item"> 
+				<div class="header"> 
+					<span>Online bárhonnan</span>
+						<button class="toggle-btn">
+					<span class="label">Részletek</span> 
+					<span class="arrow">▼</span>
+						</button> 
+				</div> 
+				<div class="content">
+					<p>Bármely eszközről és helyszínről hozzáférhetsz az edzéstervekhez, legyen az otthon, edzőterem vagy nyaralás közben.</p> 
+				</div> 
+				</div> 
+				<div class="detail-item"> 
+				<div class="header"> 
+					<span>Útmutatás a helyes végrehajtáshoz</span> 
+						<button class="toggle-btn">
+					<span class="label">Részletek</span> 
+					<span class="arrow">▼</span>
+						</button> 
+				</div>
+				<div class="content"> 
+					<p>Videós és szöveges instrukciókkal biztosítom, hogy minden gyakorlatot helyesen és biztonságosan végezz.</p> 
+				</div> 
+				</div> 
+				<div class="detail-item">
+				<div class="header">
+					<span>Folyamatos fejlődéskövetés</span>	
+						<button class="toggle-btn">
+					<span class="label">Részletek</span>
+					<span class="arrow">▼</span>
+						</button> 
+				</div> 
+				<div class="content">
+					<p>Minden edzés után nyomon követjük az előrehaladásodat, és szükség esetén módosítjuk a tervet a folyamatos fejlődés érdekében.</p>
+				</div> 
+				</div> 
+	</section> 
+	<!-- Szolgáltatások --> 
+	<section id="services"> 
+		<h2 style="text-align:center; margin-bottom:20px; color: #27ae60;">Jelentkezéshez kattints a neked megfelelőre:</h2> 	
+			<div class="services"> 
+				<a class="service-card" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank"> 
+					<h3>Online 2x/hét</h3> 
+				<p>Havi díj: 16 000 Ft</p> 
+				<p class="small-text">(2 000 Ft/edzés)</p> 
+				</a>
+
+				<a class="service-card" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank">
+  <h3>Online 3×/hét</h3>
+  <p>Havi díj: 24 000 Ft</p>
+  <p class="small-text">(2 000 Ft/edzés)</p>
+</a>
+
+<a class="service-card" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank">
+  <h3>Online 4×/hét</h3>
+	 <div class="price-box">
+	  <span class="old-price">32 000 Ft</span>
+	  <span class="new-price">28 800 Ft</span>
+	</div>
+<p class="small-text">(1 800 Ft/edzés)</p>
+</a>
+
+<a class="service-card" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank">
+  <h3>Online 5×/hét</h3>
+	<div class="price-box">
+	  <span class="old-price">40 000 Ft</span>
+	  <span class="new-price">34 000 Ft</span>
+	</div>
+  <p class="small-text">(1 700 Ft/edzés)</p>
+</a>
+
+<a class="service-card" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank">
+  <h3>Online 8 hetes csomag 3×/hét</h3>
+	<div class="price-box">
+	  <span class="old-price">48 000 Ft</span>
+	  <span class="new-price">40 800 Ft</span>
+	</div>
+  <p class="small-text">(1 700 Ft/edzés)</p>
+</a>
+
+<a class="service-card" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank">
+  <h3>Online 12 hetes csomag 3×/hét</h3>
+	<div class="price-box">
+	  <span class="old-price">72 000 Ft</span>
+	  <span class="new-price">57 600 Ft</span>
+	</div>
+  <p class="small-text">(1 600 Ft/edzés)</p>
+</a>
+
+<a class="service-card" href="mailto:ittlilike@gmail.com">
+  <h3>Személyes edzés</h3>
+  <p>Érdeklődés e-mailben</p>
+</a>
+</div>
+ </section> 
+<!-- Kedvezmények -->
+<section id="discounts"> 
+	<h2>Kedvezmények</h2> 
+	<div class="discount-table-container">
+		<table class="discount-table"> 
+			<thead> 
+				<tr> 
+					<th>Edzés/hét</th>
+					<th>Kedvezmény</th> 
+					<th>Kedvezményes ár</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+				<tr> 
+					<td>4 napos</td>
+					<td class="small-text">10%</td> 
+					<td class="discount-price">28 800 Ft</td> 
+				</tr> 
+				<tr> 
+					<td>5 napos</td>
+					<td class="small-text">15%</td>
+					<td class="discount-price">34 000 Ft</td>
+				</tr>
+				<tr> 
+					<td>8 hetes csomag</td> 
+					<td class="small-text">15%</td> 
+					<td class="discount-price">40 800 Ft</td> 
+				</tr> 
+				<tr> 
+					<td>12 hetes csomag</td> 
+					<td class="small-text">20%</td> 
+					<td class="discount-price">57 600 Ft</td> 
+				</tr> 
+			</tbody> 
+		</table> 
+		<h3>További kedvezményekért keress e-mailen!</h3>
+	</section> <!-- Kapcsolat --> <section id="contact"> <h2>Kapcsolat</h2> <a href="mailto:ittlilike@gmail.com">✉️ E-mail</a> <a href="https://www.facebook.com/profile.php?id=61575575230287" target="_blank">📘 Facebook</a> <a href="https://www.instagram.com/online_edzes_l/" target="_blank">📸 Instagram</a> </section> <footer> <p>© 2025 Ittzés Lili - Sportoktató</p> </footer> <!-- Toggle Script --> <script> document.querySelectorAll('.toggle-btn').forEach(btn => { btn.addEventListener('click', () => { const parent = btn.closest('.detail-item'); parent.classList.toggle('open'); const label = btn.querySelector('.label'); const arrow = btn.querySelector('.arrow'); if(parent.classList.contains('open')){ label.textContent = 'Bezárás'; arrow.textContent = '▲'; } else { label.textContent = 'Részletek'; arrow.textContent = '▼'; } }); }); const hamburger = document.getElementById('hamburger'); const navLinks = document.getElementById('nav-links'); hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburger.classList.toggle('active'); }); </script> </body> </html>
