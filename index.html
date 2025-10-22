@@ -772,25 +772,62 @@
 			<p>© 2025 Ittzés Lili - Sportoktató</p> 
 		</footer> 
 		<!-- Toggle Script --> 
-			<script> document.querySelectorAll
-				('.toggle-btn').forEach
-				(btn => { btn.addEventListener
-				('click', () => { const parent = btn.closest
-				('.detail-item'); 
-				
-				parent.classList.toggle('open'); 
-				const label = btn.querySelector('.label'); 
-				const arrow = btn.querySelector('.arrow'); 
-				
-				if(parent.classList.contains('open'))
-				{ label.textContent = 'Bezárás'; arrow.textContent = '▲'; } 
-				
-				else { label.textContent = 'Részletek'; arrow.textContent = '▼'; } }); }); 
-				const hamburger = document.getElementById('hamburger'); 
-				const navLinks = document.getElementById('nav-links'); 
-				hamburger.addEventListener('click', () => { navLinks.classList.toggle('active');
-				hamburger.classList.toggle('active'); }); 
-			</script> 
+			<script>
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const parent = btn.closest('.detail-item');
+    parent.classList.toggle('open');
+
+    const label = btn.querySelector('.label');
+    const arrow = btn.querySelector('.arrow');
+
+    if (parent.classList.contains('open')) {
+      label.textContent = 'Bezárás';
+      arrow.textContent = '▲';
+    } else {
+      label.textContent = 'Részletek';
+      arrow.textContent = '▼';
+    }
+  });
+});
+
+// --- Hamburger menü logika ---
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+// Menü nyit/zár gombbal
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation(); // ne záródjon be azonnal
+  navLinks.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
+
+// Menü linkre kattintáskor záródjon
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  });
+});
+
+// Ha a menün kívül kattintanak, záródjon
+document.addEventListener('click', (e) => {
+  const clickedInside = navLinks.contains(e.target) || hamburger.contains(e.target);
+  if (!clickedInside) {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+
+// ESC gombbal is zárható
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+</script>
+
 			<script>
 			// oldal betöltésekor minden detail-item zárva indul
 				document.addEventListener("DOMContentLoaded", () => {
