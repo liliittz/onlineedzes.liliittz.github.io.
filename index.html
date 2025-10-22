@@ -1,284 +1,312 @@
 <!DOCTYPE html>
 
-<html lang="hu"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Ittzés Lili - Sportoktató</title> <style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-body {
-margin:0; padding:0;
-font-family:'Inter', sans-serif;
-background-color:#2a2a2a;
-color:#f0f0f0;
-text-align:center;
-}
+<html lang="hu"> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+			<title>Ittzés Lili - Sportoktató</title> 
+	
+<style> @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+	body {
+	margin:0; padding:0;
+	font-family:'Inter', sans-serif;
+	background-color:#2a2a2a;
+	color:#f0f0f0;
+	text-align:center;
+	}
 
-nav {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 10px 20px;
-background: #1b1b1b;
-position: sticky;
-top: 0;
-z-index: 100;
-box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
+	nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background: #1b1b1b;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+	}
 
-.nav-links {
-display: flex;
-gap: 15px;
-}
+	.nav-links {
+	display: flex;
+	gap: 15px;
+	}
 
-.nav-links a {
-color: #27ae60;
-text-decoration: none;
-font-weight: 600;
-transition: 0.3s;
-margin: 0 5px;
-}
+	.nav-links a {
+	color: #27ae60;
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.3s;
+	margin: 0 5px;
+	}
 
-.nav-links a:hover {
-color: #a3e6a3;
-}
+	.nav-links a:hover {
+	color: #a3e6a3;
+	}
 
-.hamburger {
-display: none;
-flex-direction: column;
-cursor: pointer;
-width: 25px;
-height: 20px;
-color: #27ae60;
-justify-content: space-between;
-}
+	.hamburger {
+	display: none;
+	flex-direction: column;
+	cursor: pointer;
+	width: 25px;
+	height: 20px;
+	color: #27ae60;
+	justify-content: space-between;
+	}
 
-.hamburger div {
-background-color: #2a2a2a;
-height: 3px;
-border-radius: 2px;
-transition: 0.3s;
-}
+	.hamburger div {
+	background-color: #27ae60;
+	height: 3px;
+	border-radius: 2px;
+	transition: 0.3s;
+	}
 
-@media (max-width: 480px) {
-.discount-table {
-font-size: 12px;
-}
-.nav-links {
-display: none;
-flex-direction: column;
-width: 100%;
-background-color: #2a2a2a;
-position: absolute;
-top: 50px;
-left: 0;
-padding: 10px 0;
-box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-border-radius: 0 0 15px 15px;
-}
+	@media (max-width: 480px) {
+	.discount-table {
+	font-size: 12px;
+	}
+	.nav-links {
+	display: none;
+	flex-direction: column;
+	width: 100%;
+	background-color: #2a2a2a;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	padding: 10px 0;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+	border-radius: 0 0 15px 15px;
+	}
 
-.nav-links.active {
-display: flex;
-}
+	.nav-links.active {
+	display: flex;
+	}
 
-.hamburger {
-display: flex;
-}
-}
+	.hamburger {
+	display: flex;
+	}
+	}
 
-header {
-padding:30px;
-background: linear-gradient(135deg,#1b1b1b,#2a2a2a);
-border-radius:15px;
-margin:20px;
-box-shadow:0 4px 20px rgba(39,174,96,0.5);
-}
+	header {
+	padding:30px;
+	background: linear-gradient(135deg,#1b1b1b,#2a2a2a);
+	border-radius:15px;
+	margin:20px;
+	box-shadow:0 4px 20px rgba(39,174,96,0.5);
+	}
 
-header h1 { color:#27ae60; margin-bottom:0.5em; }
-header p { margin:0.3em 0; font-size:1.1rem; }
+	header h1 { color:#27ae60; margin-bottom:0.5em; }
+	header p { margin:0.3em 0; font-size:1.1rem; }
 
-section {
-max-width:900px;
-margin:30px auto;
-padding:20px;
-border-radius:15px;
-box-shadow:0 4px 15px rgba(39,174,96,0.3);
-background-color:#2a2a2a;
-}
+	section {
+	max-width:900px;
+	margin:30px auto;
+	padding:20px;
+	border-radius:15px;
+	box-shadow:0 4px 15px rgba(39,174,96,0.3);
+	background-color:#2a2a2a;
+	}
 
-#frissites h2, 
-#discounts h2 {
-  color: #27ae60; /* zöld */
-}
+	#frissites h2, 
+	#discounts h2 {
+	  color: #27ae60; /* zöld */
+	}
 
-#discounts h2 {
-    font-size: 1.6rem; /* nagyobb a "Kedvezmények" cím */
-    color: #27ae60;
-    margin-bottom: 15px;
-}
+	.badges {
+	  display:flex; flex-wrap:wrap; gap:8px; margin:12px 0;
+	}
+	.badge {
+	  border:1px solid #27ae60; color:#27ae60; padding:6px 10px; border-radius:999px; font-size:0.85rem;
+	}
+	.grid-2 {
+	  display:grid; grid-template-columns: 1fr 1fr; gap:16px;
+	}
+	@media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
 
-#discounts h3 {
-    font-size: 1rem; /* kisebb a "További kedvezményekért..." sor */
-    font-weight: 500;
-    color: #27ae60;
-    margin-top: 15px;
-}
+	.cta-btn {
+	  display:inline-block; margin-top:12px; background:#27ae60; color:#121212; 
+	  padding:10px 16px; border-radius:10px; font-weight:700; text-decoration:none; 
+	  box-shadow:0 4px 12px rgba(39,174,96,0.35); transition:transform .2s, box-shadow .2s;
+	}
+	.cta-btn:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(39,174,96,0.5); }
 
-
-.detail-item {
-border:1px solid #27ae60;
-border-radius:12px;
-margin:10px 0;
-overflow:hidden;
-text-align:left;
-}
-
-.detail-item .header {
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 15px;
-background:#222;
-font-weight:600;
-cursor:pointer;
-}
-
-.detail-item .toggle-btn {
-background:#27ae60;
-border:none;
-padding:5px 12px;
-border-radius:8px;
-color:#121212;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-display:flex;
-align-items:center;
-gap:5px;
-}
-
-.detail-item .toggle-btn:hover { background:#3bd25b; }
-
-.detail-item .content {
-max-height:0;
-overflow:hidden;
-padding:0 15px;
-background:#1b1b1b;
-transition:max-height 0.5s ease, padding 0.5s ease;
-line-height:1.5;
-}
-
-.detail-item.open .content {
-max-height:500px;
-padding:10px 15px;
-}
-
-.services {
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #888;
-  font-size: 14px;
-  display: block;
-}
-
-.new-price {
-  color: #27ae60; /* zöld */
-  font-size: 16px;
-  font-weight: bold;
-  display: block;
-}
-
-.price-box {
-  margin-bottom: 5px;
-}
+	.subsec { margin:10px 0; }
+	.subsec h4 { color:#27ae60; margin:6px 0; font-size:1.05rem; }
 
 
-.service-card {
-display:block;
-width:220px;
-background:#1f1f1f;
-padding:20px;
-border-radius:15px;
-box-shadow:0 4px 15px rgba(39,174,96,0.3);
-text-decoration:none;
-color:#f0f0f0;
-transition:0.3s;
-}
+	#discounts h2 {
+		font-size: 1.6rem; /* nagyobb a "Kedvezmények" cím */
+		color: #27ae60;
+		margin-bottom: 15px;
+	}
 
-.service-card:hover {
-transform:translateY(-5px);
-background:linear-gradient(135deg,#1f1f1f,#27ae60a0);
-}
+	#discounts h3 {
+		font-size: 1rem; /* kisebb a "További kedvezményekért..." sor */
+		font-weight: 500;
+		color: #27ae60;
+		margin-top: 15px;
+	}
 
-.service-card h3, .service-card p { margin:5px 0; }
 
-.contact a {
-display:inline-block;
-margin:15px 20px;
-color:#27ae60;
-text-decoration:none;
-font-weight:600;
-}
+	.detail-item {
+	border:1px solid #27ae60;
+	border-radius:12px;
+	margin:10px 0;
+	overflow:hidden;
+	text-align:left;
+	}
 
-#contact a {
-  color: #27ae60; /* linkek zöldek */
-}
+	.detail-item .header {
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	padding:10px 15px;
+	background:#222;
+	font-weight:600;
+	cursor:pointer;
+	}
 
-#contact h2 {
-  color: #27ae60; /* zöld */
-}
+	.detail-item .toggle-btn {
+	background:#27ae60;
+	border:none;
+	padding:5px 12px;
+	border-radius:8px;
+	color:#121212;
+	font-weight:600;
+	cursor:pointer;
+	transition:0.3s;
+	display:flex;
+	align-items:center;
+	gap:5px;
+	}
 
-.contact a:hover { color:#a3e6a3; }
+	.detail-item .toggle-btn:hover { background:#3bd25b; }
 
-footer { text-align:center; margin:20px; color:#27ae60; font-weight:600; font-size:0.9rem; }
+	.detail-item .content {
+	max-height:0;
+	overflow:hidden;
+	padding:0 15px;
+	background:#1b1b1b;
+	transition:max-height 0.5s ease, padding 0.5s ease;
+	line-height:1.5;
+	}
 
-.discount-table {
-overflow-x: auto;
--webkit-overflow-scrolling: touch;
-width:auto;
-border-collapse:collapse;
-margin: 26px auto;
-margin-top:20px;
-text-align:center;
-white-space: nowrap;
-table-layout: auto;
-font-size:13px; /* kicsit nagyobb alapméret */
-}
+	.detail-item.open .content {
+	max-height:500px;
+	padding:10px 15px;
+	}
 
-.discount-table th, 
-.discount-table td {
-border:1px solid #27ae60;
-padding:5px 8px;
-word-wrap: break-word;
-}
+	.services {
+	display:flex;
+	flex-wrap:wrap;
+	gap:20px;
+	justify-content:center;
+	}
 
-.discount-table th {
-background:#27ae60;
-color:#121212;
-font-size:13px;
-}
+	.old-price {
+	  text-decoration: line-through;
+	  color: #888;
+	  font-size: 14px;
+	  display: block;
+	}
 
-.discount-table td {
-background:#1b1b1b;
-font-weight:500; /* kicsit vastagabb a többi cella */
-}
+	.new-price {
+	  color: #27ae60; /* zöld */
+	  font-size: 16px;
+	  font-weight: bold;
+	  display: block;
+	}
 
-.discount-table td.discount-price {
-color:#27ae60;
-font-weight:700;
-font-size:15px; /* kiemelt ár */
-}
+	.price-box {
+	  margin-bottom: 5px;
+	}
 
-.discount-table tr:hover td {
-background:#2a2a2a;
-}
 
-.small-text { font-size:0.85rem; }
+	.service-card {
+	display:block;
+	width:220px;
+	background:#1f1f1f;
+	padding:20px;
+	border-radius:15px;
+	box-shadow:0 4px 15px rgba(39,174,96,0.3);
+	text-decoration:none;
+	color:#f0f0f0;
+	transition:0.3s;
+	}
 
-html {
-scroll-behavior: smooth;
-}
+	.service-card:hover {
+	transform:translateY(-5px);
+	background:linear-gradient(135deg,#1f1f1f,#27ae60a0);
+	}
+
+	.service-card h3, .service-card p { margin:5px 0; }
+
+	.contact a {
+	display:inline-block;
+	margin:15px 20px;
+	color:#27ae60;
+	text-decoration:none;
+	font-weight:600;
+	}
+
+	#contact a {
+	  color: #27ae60; /* linkek zöldek */
+	}
+
+	#contact h2 {
+	  color: #27ae60; /* zöld */
+	}
+
+	.contact a:hover { color:#a3e6a3; }
+
+	footer { text-align:center; margin:20px; color:#27ae60; font-weight:600; font-size:0.9rem; }
+
+	.discount-table {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	width:auto;
+	border-collapse:collapse;
+	margin: 26px auto;
+	margin-top:20px;
+	text-align:center;
+	white-space: nowrap;
+	table-layout: auto;
+	font-size:13px; /* kicsit nagyobb alapméret */
+	}
+
+	.discount-table th, 
+	.discount-table td {
+	border:1px solid #27ae60;
+	padding:5px 8px;
+	word-wrap: break-word;
+	}
+
+	.discount-table th {
+	background:#27ae60;
+	color:#121212;
+	font-size:13px;
+	}
+
+	.discount-table td {
+	background:#1b1b1b;
+	font-weight:500; /* kicsit vastagabb a többi cella */
+	}
+
+	.discount-table td.discount-price {
+	color:#27ae60;
+	font-weight:700;
+	font-size:15px; /* kiemelt ár */
+	}
+
+	.discount-table tr:hover td {
+	background:#2a2a2a;
+	}
+
+	.small-text { font-size:0.85rem; }
+
+	html {
+	scroll-behavior: smooth;
+	}
 </style>
 
 </head> 
@@ -296,6 +324,7 @@ scroll-behavior: smooth;
 		<div class="nav-links" id="nav-links"> 
 			<a href="#bemutatkozas">Bemutatkozás</a>
 			<a href="#frissites">Frissítés</a> 
+			<a href="#irodai">Irodai edzés</a>
 			<a href="#services">Szolgáltatások</a> 
 			<a href="#discounts">Kedvezmények</a> 
 			<a href="#contact">Kapcsolat</a> 
@@ -387,6 +416,80 @@ scroll-behavior: smooth;
 				</div> 
 				</div> 
 	</section> 
+	
+	<section id="irodai">
+  <h2 style="color:#27ae60;">Irodai edzés – ülő életmódra hangolva</h2>
+  <p>Sokat ülsz a gép előtt? Gyakran feszül a nyakad, a derekad vagy a csípőd? Ez a program célzottan az ülőmunkából fakadó
+  panaszokra épít: tartásjavítás, mobilitás, törzserő és vállöv-stabilitás – rövid, betartható blokkokban.</p>
+
+  <!-- Kinek ideális? (előre hozva) -->
+  <div class="detail-item">
+    <div class="header">
+      <span>Kinek ideális?</span>
+      <button class="toggle-btn"><span class="label">Bezárás</span><span class="arrow">▲</span></button>
+    </div>
+    <div class="content">
+      <p>Kezdőknek és haladóknak, akik ülőmunkát végeznek (iroda vagy home office), és szeretnék csökkenteni a derék-, hát- vagy nyakfájást,
+      javítanák a tartásukat és növelnék az energiaszintjüket a nap folyamán.</p>
+    </div>
+  </div>
+
+  <!-- Mit kapsz? (kért tételek + odaillő kiegészítések) -->
+  <div class="detail-item">
+    <div class="header">
+      <span>Mit kapsz?</span>
+      <button class="toggle-btn"><span class="label">Bezárás</span><span class="arrow">▲</span></button>
+    </div>
+    <div class="content">
+      <ul>
+        <li><strong>Heti 2 edzés Újpesten, vagy online</strong> (kiscsoportos/egyéni).</li>
+        <li><strong>Edzésidő: 45 perc</strong> – tehermentesítő, ízületkímélő, tartásjavító felépítés.</li>
+        <li><strong>Pár irodában végrehajtható gyakorlat</strong> – gyors „újratöltés” a nap közben.</li>
+        <li><strong>Videók</strong> a helyes végrehajtáshoz + rövid jegyzetek (otthon/iroda verzióval).</li>
+        <li><strong>Egyszerű haladáskövetés</strong> (rövid napló).</li>
+        <li><strong>Eszköz-alternatívák</strong> (szék, gumiszalag, vizespalack – ha nincs kézisúly).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Egy közös nyitható blokk: Minta hét + Regeneráció/Visszatöltődés -->
+  <div class="detail-item">
+    <div class="header">
+      <span>Minta hét (2×/hét) + Regeneráció / visszatöltődés</span>
+      <button class="toggle-btn"><span class="label">Részletek</span><span class="arrow">▼</span></button>
+    </div>
+    <div class="content">
+      <div class="subsec">
+        <h4>Minta hét (2×/hét)</h4>
+        <p><strong>Kedd – Tartás & vállöv (45’)</strong><br>
+        Nyak–mellkasi mobilitás, lapocka-kontroll, rotátorköpeny-aktiváció, könnyű húzó/nyomó gyakorlatok.</p>
+        <p><strong>Csütörtök – Csípő & core (45’)</strong><br>
+        Csípőnyitás, farizom-aktiváció, mély hasizmok (core), gerinc tehermentesítés, levezetés.</p>
+        <p><em>Extra:</em> napi 1 rövid „irodai reset” (3–6 perc) – nyak/váll lazítás, csípő mobilizálás, légzés.</p>
+      </div>
+
+      <div class="subsec">
+        <h4>Eszközök a regenerációhoz / visszatöltődéshez</h4>
+        <ul>
+          <li><strong>SMR henger</strong> – hát, comb, farizom lazításra.</li>
+          <li><strong>Masszázslabda / teniszlabda</strong> – lapocka környéke, talp, farizom trigger pontok.</li>
+          <li><strong>Gumiszalag</strong> – lapockastabilizáló és csípőaktiváló gyakorlatokhoz.</li>
+          <li><strong>Törölköző / kis párna</strong> – mellkasi nyitás, nyak tehermentesítés.</li>
+          <li><strong>Légzésprotokoll</strong> (pl. 4–6 lassú orrlégzés ciklus, 2–3 perc) stresszcsökkentésre.</li>
+          <li><strong>Hidratálás + képernyőszünet</strong> (20–20–20 szabály) és napi könnyű séta.</li>
+          <li><strong>Alvás-higiéné</strong> – lefekvés előtti nyújtás/rolling 5–8 perc.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank">
+    Csatlakozom az irodai programhoz
+  </a>
+</section>
+
+
+	
 	<!-- Szolgáltatások --> 
 	<section id="services"> 
 		<h2 style="text-align:center; margin-bottom:20px; color: #27ae60;">Jelentkezéshez kattints a neked megfelelőre:</h2> 	
@@ -440,10 +543,16 @@ scroll-behavior: smooth;
 </a>
 
 <a class="service-card" href="mailto:ittlilike@gmail.com">
-  <h3>Személyes edzés</h3>
+  <h3>Személyes edzés  Újpesten</h3>
   <p>Érdeklődés e-mailben</p>
 </a>
 </div>
+<div style="text-align:center; margin-top:25px;">
+  <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScgwTixY1wgfXy_hj8OL48Wjr4YhH7DkAYGIeRkgVLWU0fZcw/viewform?usp=header" target="_blank">
+    Jelentkezem a FRISSÍTÉS programra
+  </a>
+</div>
+
  </section> 
 <!-- Kedvezmények -->
 <section id="discounts"> 
@@ -480,5 +589,222 @@ scroll-behavior: smooth;
 				</tr> 
 			</tbody> 
 		</table> 
-		<h3>További kedvezményekért keress e-mailen!</h3>
-	</section> <!-- Kapcsolat --> <section id="contact"> <h2>Kapcsolat</h2> <a href="mailto:ittlilike@gmail.com">✉️ E-mail</a> <a href="https://www.facebook.com/profile.php?id=61575575230287" target="_blank">📘 Facebook</a> <a href="https://www.instagram.com/online_edzes_l/" target="_blank">📸 Instagram</a> </section> <footer> <p>© 2025 Ittzés Lili - Sportoktató</p> </footer> <!-- Toggle Script --> <script> document.querySelectorAll('.toggle-btn').forEach(btn => { btn.addEventListener('click', () => { const parent = btn.closest('.detail-item'); parent.classList.toggle('open'); const label = btn.querySelector('.label'); const arrow = btn.querySelector('.arrow'); if(parent.classList.contains('open')){ label.textContent = 'Bezárás'; arrow.textContent = '▲'; } else { label.textContent = 'Részletek'; arrow.textContent = '▼'; } }); }); const hamburger = document.getElementById('hamburger'); const navLinks = document.getElementById('nav-links'); hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburger.classList.toggle('active'); }); </script> </body> </html>
+		<div style="text-align:center; margin-top:20px;">
+  <a class="cta-btn" href="mailto:ittlilike@gmail.com?subject=Kedvezmény%20érdeklődés%20-%20Frissítés%20program">
+    További kedvezményekért írj e-mailt 💬
+  </a>
+</div>
+
+
+		
+		<!-- Gyakori kérdések -->
+<section id="faq">
+  <h2>Gyakran Ismételt Kérdések</h2>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Kiknek szól az online edzésprogram?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Kezdőknek és haladóknak egyaránt, akik szeretnének formálódni, fogyni vagy izmot építeni.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Szükséges-e edzőtermi tagság?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Nem, az edzések elvégezhetők otthoni eszközökkel, teremben, vagy eszközök nélkül, a program elején leegyeztetjük, hogy milyen eszközök állnak rendelkezésedre.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Milyen felszerelés szükséges otthoni edzéshez?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Alap súlyzók, gumiszalagok vagy akár testsúlyos gyakorlatok is elegendőek lehetnek.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Milyen hosszúak az edzéstervek?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>4–12 hetes programok állnak rendelkezésre, a célodhoz igazítva, igény esetén ennél hosszabb programot is tudunk összeállítani.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Hogyan kapom meg a programot?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Ahogy a legkényelmesebb számodra: lehet Messengeren, e-mailen, Google Drive-on, vagy bármilyen más online platformon. Így könnyen elérheted bármikor, bárhonnan, és mindig kéznél lesz.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Rugalmas-e az időbeosztás?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Igen, az edzéseket bármikor elvégezheted, a saját napirendedhez igazítva.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Van-e személyes támogatás?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Igen, folyamatos konzultáció, motiváció és visszajelzés a fejlődésedről.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Mennyi időt vesz igénybe egy edzés?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Az edzések általában 30–60 perc között vannak, a programtól és a céljaidtól függően. Már az elején, a kérdőívben leegyeztetjük, hogy mennyi időt szeretnél szánni egy edzésre.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Mely izomcsoportokra koncentrál az edzésterv?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>A program teljes testre kiterjed, de különösen azokra az izomcsoportokra fókuszálunk, amelyeket a kérdőívedben megjelöltél.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Hogyan tartják számon a fejlődésemet?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Közösen vezetünk egy edzésnaplót, ahol rögzítjük a fejlődésedet, a teljesített edzéseket, valamint az érzéseidet és tapasztalataidat.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Milyen egészségügyi előkészületek szükségesek?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>Általános egészségi állapot mellett nincs szükség külön előkészületre, de ha bármilyen egészségügyi problémád van, konzultálj előtte az orvosoddal.</p>
+    </div>
+  </div>
+
+  <div class="detail-item">
+    <div class="header">
+      <span>Hogyan történik a fizetés?</span>
+      <button class="toggle-btn">
+        <span class="label">Részletek</span>
+        <span class="arrow">▼</span>
+      </button>
+    </div>
+    <div class="content">
+      <p>A fizetés átutalással történik, és minden esetben online számlát kapsz a csomagról.</p>
+    </div>
+  </div>
+</section>
+
+		
+
+	</section> 
+	<!-- Kapcsolat --> 
+	<section id="contact"> 
+		<h2>Kapcsolat</h2> 
+			<a href="mailto:ittlilike@gmail.com">✉️ E-mail</a> 
+			<a href="https://www.facebook.com/profile.php?id=61575575230287" target="_blank">📘 Facebook</a> 
+			<a href="https://www.instagram.com/online_edzes_l/" target="_blank">📸 Instagram</a> 
+	</section> 
+		<footer> 
+			<p>© 2025 Ittzés Lili - Sportoktató</p> 
+		</footer> 
+		<!-- Toggle Script --> 
+			<script> document.querySelectorAll
+				('.toggle-btn').forEach
+				(btn => { btn.addEventListener
+				('click', () => { const parent = btn.closest
+				('.detail-item'); 
+				
+				parent.classList.toggle('open'); 
+				const label = btn.querySelector('.label'); 
+				const arrow = btn.querySelector('.arrow'); 
+				
+				if(parent.classList.contains('open'))
+				{ label.textContent = 'Bezárás'; arrow.textContent = '▲'; } 
+				
+				else { label.textContent = 'Részletek'; arrow.textContent = '▼'; } }); }); 
+				const hamburger = document.getElementById('hamburger'); 
+				const navLinks = document.getElementById('nav-links'); 
+				hamburger.addEventListener('click', () => { navLinks.classList.toggle('active');
+				hamburger.classList.toggle('active'); }); 
+			</script> 
+			<script>
+			// oldal betöltésekor minden detail-item zárva indul
+				document.addEventListener("DOMContentLoaded", () => {
+				  document.querySelectorAll(".detail-item").forEach(item => {
+					item.classList.remove("open");
+					const btn = item.querySelector(".toggle-btn .label");
+					const arrow = item.querySelector(".toggle-btn .arrow");
+					if (btn && arrow) {
+					  btn.textContent = "Részletek";
+					  arrow.textContent = "▼";
+					}
+				  });
+				});
+			</script>
+
+		</body> 
+	</html>
